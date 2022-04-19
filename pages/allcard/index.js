@@ -7,7 +7,7 @@ function Index() {
   return (
     <div>
       <center>
-        การ์ดทั้งหมด123
+        การ์ดทั้งหมด
         <br />
         <br />
         <Zoom>
