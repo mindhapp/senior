@@ -3,7 +3,8 @@ import Link from "next/link";
 
 function S1() {
   return (
-    <div>
+    <div >
+      <div>
       <center>
         <Link href={`/story/feature1/start/s2`}>
           <div className=" cursor-pointer pt-24">
@@ -14,7 +15,9 @@ function S1() {
         </Link>
         
       </center>
+      </div>
     </div>
+    
   );
 }
 

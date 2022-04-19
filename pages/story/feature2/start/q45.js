@@ -9,7 +9,7 @@ const Q45 = observer(() => {
       <center>
         <div className=" border border-solid py-10">
           {" "}
-          <h1>ถ้าต้องสารภาพความในใจกับคนที่คุณ ?</h1>
+          <h1>ถ้าต้องสารภาพความในใจกับคนที่คุณรัก... ?</h1>
           <br />
           <Link href="/story/feature2/start/end">
             <button onClick={() => store.addCharacter("P")}>
