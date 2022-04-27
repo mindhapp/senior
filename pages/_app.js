@@ -15,4 +15,6 @@ function MyApp({ Component, pageProps, router }) {
   );
 }
 
-export default MyApp;
+export default dynamic(() => Promise.resolve(MyApp), {
+  ssr: false,
+});

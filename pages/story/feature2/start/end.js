@@ -17,7 +17,6 @@ import Isfp from "../../../../components/card/Isfp";
 import Esfp from "../../../../components/card/Esfp";
 import Estp from "../../../../components/card/Estp";
 import Istp from "../../../../components/card/Istp";
-const ISSERVER = typeof window === "undefined";
 const End = observer(() => {
   let answers = store.character.toString();
   let results = answers.split(",");
@@ -25,8 +24,7 @@ const End = observer(() => {
 
   let result = ''
   for (let i = 0; i <= 3; i++) {
-    if (!ISSERVER)
-      result += localStorage.getItem(i)
+    result += localStorage.getItem(i)
   }
   // store.character.forEach((el, index) => {
   //   return result += el

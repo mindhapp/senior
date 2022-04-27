@@ -1,5 +1,4 @@
 import { makeAutoObservable } from "mobx";
-const ISSERVER = typeof window === "undefined";
 class Store {
   character = ['', '', '', ''];
   names = null;
@@ -15,8 +14,7 @@ class Store {
     // } else {
     //   this.character.push(c);
     // }
-    if (ISSERVER)
-      localStorage.setItem(c.index, c.character)
+    localStorage.setItem(c.index, c.character)
 
     //It work!!! but can't refresh
     // this.character[c.index] = c.character
