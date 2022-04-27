@@ -21,7 +21,10 @@ const Q2 = observer(() => {
           <br />
           <br />
           <Link href="/story/feature2/start/q3">
-            <button onClick={() => store.addCharacter("N")}>
+            <button onClick={() =>
+              // store.addCharacter("N")
+              store.addCharacter({ question: 2, character: 'N', index: 1 })
+            }>
               {" "}
               <i className="fa-solid fa-circle" /> รู้สึกเศร้า เสียใจ
               จมดิ่งไปกับความรู้สึก

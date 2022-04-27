@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { store } from "../../../../components/store/store";
 import { observer } from "mobx-react-lite";
 import Link from "next/link";
@@ -21,11 +21,25 @@ import Istp from "../../../../components/card/Istp";
 const End = observer(() => {
   let answers = store.character.toString();
   let results = answers.split(",");
-  let result = results.join("");
+  // let result = results.join("");
+
+  let result = ''
+  for (let i = 0; i <= 3; i++) {
+    result += localStorage.getItem(i)
+  }
+  // store.character.forEach((el, index) => {
+  //   return result += el
+  // }
+  // )
+
+  // useEffect(() => {
+  //   store.character.forEach(el => result += el['character'])
+  //   console.log(result);
+  // }, [])
 
   return (
     <div>
-      <center>การ์ดที่คุณได้คือ {results.join("")}</center>
+      <center>การ์ดที่คุณได้คือ {result}</center>
       {result == "ISTJ" ? (
         <Istj />
       ) : result == "ESTJ" ? (

@@ -6,7 +6,7 @@ const Q0 = observer(() => {
   return (
     <div>
       <center>
-       
+        <img src="/start.png" alt="start" width={500} />
         <div className=" border border-solid py-10">
           {" "}
           <h1>ฉันเป็นคนที่ ....</h1>

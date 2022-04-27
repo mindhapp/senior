@@ -9,10 +9,13 @@ const Q45 = observer(() => {
       <center>
         <div className=" border border-solid py-10">
           {" "}
-          <h1>ถ้าต้องสารภาพความในใจกับคนที่คุณรัก... ?</h1>
+          <h1>ถ้าต้องสารภาพความในใจกับคนที่คุณ ?</h1>
           <br />
           <Link href="/story/feature2/start/end">
-            <button onClick={() => store.addCharacter("P")}>
+            <button onClick={() =>
+              //store.addCharacter("P")
+              store.addCharacter({ question: 45, character: 'P', index: 3 })
+            }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}
               ถ้าบรรยากาศรอบๆเป็นใจก็สารภาพเลย
@@ -21,7 +24,10 @@ const Q45 = observer(() => {
           <br />
           <br />
           <Link href="/story/feature2/start/end">
-            <button onClick={() => store.addCharacter("J")}>
+            <button onClick={() =>
+              //store.addCharacter("J")
+              store.addCharacter({ question: 45, character: 'J', index: 3 })
+            }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}
               วางแผนอย่างละเอียดก่อนหาจังหวะสารภาพ

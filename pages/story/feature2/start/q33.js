@@ -21,7 +21,10 @@ const Q33 = observer(() => {
           <br />
           <br />
           <Link href="/story/feature2/start/q4">
-            <button onClick={() => store.addCharacter("F")}>
+            <button onClick={() =>
+              // store.addCharacter("F")
+              store.addCharacter({ question: 33, character: 'F', index: 2 })
+            }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}
               มีอารมณ์ร่วมและมีปฏิกิริยาตอบโต้กับเรื่องที่ฟัง

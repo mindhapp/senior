@@ -14,7 +14,10 @@ const Q1 = observer(() => {
           </h1>
           <br />
           <Link href="/story/feature2/start/q2">
-            <button onClick={() => store.addCharacter("I")}>
+            <button onClick={() =>
+              // store.addCharacter("I")
+              store.addCharacter({ question: 1, character: 'I', index: 0 })
+            }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}
               รอให้คนถามเกี่ยวกับเรื่องราวที่เกิดขึ้น
@@ -23,7 +26,10 @@ const Q1 = observer(() => {
           <br />
           <br />
           <Link href="/story/feature2/start/q2">
-            <button onClick={() => store.addCharacter("E")}>
+            <button onClick={() =>
+              // store.addCharacter("E")
+              store.addCharacter({ question: 1, character: 'E', index: 0 })
+            }>
               {" "}
               <i className="fa-solid fa-circle" /> ทักไปเล่าให้คนสำคัญของคุณฟัง
             </button>

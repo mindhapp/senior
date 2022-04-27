@@ -14,7 +14,10 @@ const Q22 = observer(() => {
           </h1>
           <br />
           <Link href="/story/feature2/start/q3">
-            <button onClick={() => store.addCharacter("N")}>
+            <button onClick={() =>
+              // store.addCharacter("N")
+              store.addCharacter({ question: 22, character: 'N', index: 1 })
+            }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}
               นึกถึงภาพวันเก่าๆตอนที่เขายังมีชีวิตอยู่ อยากย้อนเวลากลับไป

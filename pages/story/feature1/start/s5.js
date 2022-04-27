@@ -7,7 +7,7 @@ function S5() {
       <center>
         <Link href={`/story/feature1/start/s6`}>
           <div className=" cursor-pointer pt-24">
-            เตียงนอนที่คุ้นเคยเหมือนกันกับทุกวัน
+            เตียงนอนที่คุ้นเคยเหมือนกันกับทุกคน
             <img src="/assetsStory/4.png" alt="test" width={200} />
           </div>
         </Link>

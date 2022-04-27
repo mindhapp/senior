@@ -1,17 +1,32 @@
 import { makeAutoObservable } from "mobx";
 
 class Store {
-  character = [];
+  character = ['', '', '', ''];
   names = null;
   constructor() {
     makeAutoObservable(this);
   }
 
   addCharacter(c) {
-    this.character.push(c);
+    // const lastChar = this.character[this.character.length - 1]
+
+    // if (this.character.length > 0 && lastChar['question'] === c['question']) {
+    //   this.character[this.character.length - 1]['character'] = c['character']
+    // } else {
+    //   this.character.push(c);
+    // }
+
+    localStorage.setItem(c.index, c.character)
+
+    //It work!!! but can't refresh
+    // this.character[c.index] = c.character
+    // this.character.push(c);
+
     console.log(c);
     console.log(this.character);
+
   }
+
 
   addNames(n) {
     this.names = n;

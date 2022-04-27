@@ -12,7 +12,10 @@ const Q44 = observer(() => {
           <h1>สิ่งไหนใกล้เคียงกับตัวคุณมากที่สุด ?</h1>
           <br />
           <Link href="/story/feature2/start/end">
-            <button onClick={() => store.addCharacter("J")}>
+            <button onClick={() =>
+              // store.addCharacter("J")
+              store.addCharacter({ question: 44, character: 'J', index: 3 })
+            }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}
               จำรายละเอียดคนสำคัญได้อย่างแม่นยำ
