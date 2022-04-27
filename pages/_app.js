@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 import "../styles/globals.css";
 import Howto from "./howto/index";
 import Script from "next/script";
-
+import dynamic from "next/dynamic";
 function MyApp({ Component, pageProps, router }) {
   if (router.pathname.startsWith("/howto")) {
     return <Howto />;
