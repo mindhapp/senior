@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { store } from "../../../../components/store/store";
-import { observer } from "mobx-react-lite";
 import Link from "next/link";
 import Istj from "../../../../components/card/Istj";
 import Infj from "../../../../components/card/Infj";
@@ -17,29 +16,60 @@ import Isfp from "../../../../components/card/Isfp";
 import Esfp from "../../../../components/card/Esfp";
 import Estp from "../../../../components/card/Estp";
 import Istp from "../../../../components/card/Istp";
-const End = observer(() => {
-  let answers = store.character.toString();
-  let results = answers.split(",");
-  // let result = results.join("");
+import { useRouter } from "next/router";
+import { Context } from '../../../../context';
+import { updateAnswer } from '../../../../services/updateAnswer';
+// import { useCallback } from "react/cjs/react.production.min";
+import { signOut } from "firebase/auth";
+// const res = {
+//   q1: 2,
+//   q2: 3,
+//   q3: 'asdjkhrgfkj',
+//   q4: 'B',
+//   q5: 6,
+// }
 
-  let result = ''
-  for (let i = 0; i <= 3; i++) {
-    result += localStorage.getItem(i)
-  }
-  // store.character.forEach((el, index) => {
-  //   return result += el
-  // }
-  // )
+const End = () => {
+  const [result, setResult] = useState()  
+  const [authState] = useContext(Context)
 
-  // useEffect(() => {
-  //   store.character.forEach(el => result += el['character'])
-  //   console.log(result);
-  // }, [])
-
+  useEffect(() => {   
+    let temp = "";
+      for (let i = 0; i <= 3; i++) {
+        temp += localStorage.getItem(i)
+      }
+   setResult(temp)
+   updateAnswer('feature2', authState.uid, 
+    // { question: c.question, character: temp, index: 1, questionnumber:2 }) 
+    {character:temp, 
+    Answerquestion1:localStorage.getItem("question0"),
+    Answerquestion2:localStorage.getItem("question1"),
+    Answerquestion3:localStorage.getItem("question2"),
+    Answerquestion4:localStorage.getItem("question3")})
+    // const fetchFireStore = async () => {
+    //   localStorage.setItem('finish', true)
+    //   localStorage.setItem('result', temp)
+   
+    //   await addDoc(collection(db, "Record"), {
+    //     name: localStorage.getItem('name'),
+    //     MBTI_type: temp
+    //   });
+     
+    // }
+    // if (localStorage.getItem('finish') === 'false') {
+    //   fetchFireStore()
+    // }
+    
+  }, [])
+  // const onLogout = useCallback(() => {
+  //   signOut(AuthInstance())
+  // },[])
+  
+  
   return (
     <div>
       <center>การ์ดที่คุณได้คือ {result}</center>
-      {result == "ISTJ" ? (
+      {result === "ISTJ" ? (
         <Istj />
       ) : result == "ESTJ" ? (
         <Estj />
@@ -83,6 +113,6 @@ const End = observer(() => {
       </center>
     </div>
   );
-});
+};
 
 export default End;

@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, values } from "mobx";
 class Store {
   character = ['', '', '', ''];
   names = null;
@@ -15,7 +15,7 @@ class Store {
     //   this.character.push(c);
     // }
     localStorage.setItem(c.index, c.character)
-
+    localStorage.setItem(`question${c.index}`,c.question)
     //It work!!! but can't refresh
     // this.character[c.index] = c.character
     // this.character.push(c);

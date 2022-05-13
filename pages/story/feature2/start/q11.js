@@ -14,7 +14,7 @@ const Q11 = observer(() => {
           <Link href="/story/feature2/start/q2">
             <button onClick={() =>
               // store.addCharacter("I")
-              store.addCharacter({ question: 11, character: 'I', index: 0 })
+              store.addCharacter({ question: 11, character: 'I', index: 0, questionnumber:11  })
             }>
               {" "}
               <i className="fa-solid fa-circle" /> อึดอัด ทำตัวไม่ถูก
@@ -25,7 +25,7 @@ const Q11 = observer(() => {
           <Link href="/story/feature2/start/q2">
             <button onClick={() =>
               // store.addCharacter("E")
-              store.addCharacter({ question: 11, character: 'E', index: 0 })
+              store.addCharacter({ question: 11, character: 'E', index: 0 , questionnumber:11 })
             }>
               {" "}
               <i className="fa-solid fa-circle" /> มีความสุข

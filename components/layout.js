@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+
+import { createFirebaseInstance } from '../services/createFirebaseInstance'
+import { onAuthStateChanged, getAuth, signInAnonymously } from 'firebase/auth'
+
+import { Context } from '../context'
 
 function Layout({ children }) {
+  const [authState, setAuthState] = useContext(Context);
+
+  useEffect(() => {
+    const listener = onAuthStateChanged(getAuth(createFirebaseInstance()), res => {
+      console.log('Auth state: ', res)
+      setAuthState(res)
+    })
+
+    return () => listener()
+  }, [])
+
+  useEffect(() => {
+    if (authState === null) {
+      signInAnonymously(getAuth(createFirebaseInstance()))
+    }
+  }, [authState])
+
   return (
     <div className="container mx-auto py-40">
       <div className="grid grid-cols-1 gap-4">

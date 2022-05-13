@@ -3,6 +3,24 @@ import { store } from "../../../../components/store/store";
 import Link from "next/link";
 import { observer } from "mobx-react-lite";
 
+
+function q1() {
+  const router = useRouter();
+  const [authState] = useContext(Context)
+
+  const inputRef = useRef(null)
+
+  const submit = async (e) => {
+    e.preventDefault();
+
+    // call firestore to set value
+    await updateAnswer('feature2', authState.uid, {
+      q1: inputRef.current.value,
+    })
+
+    router.push("/story/feature2/start/q2");
+  }};
+
 const Q1 = observer(() => {
   return (
     <div>
@@ -16,7 +34,7 @@ const Q1 = observer(() => {
           <Link href="/story/feature2/start/q2">
             <button onClick={() =>
               // store.addCharacter("I")
-              store.addCharacter({ question: 1, character: 'I', index: 0 })
+              store.addCharacter({ question: 1, character: 'I', index: 0, questionnumber:1 })
             }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}
@@ -28,7 +46,7 @@ const Q1 = observer(() => {
           <Link href="/story/feature2/start/q2">
             <button onClick={() =>
               // store.addCharacter("E")
-              store.addCharacter({ question: 1, character: 'E', index: 0 })
+              store.addCharacter({ question: 1, character: 'E', index: 0 , questionnumber:1})
             }>
               {" "}
               <i className="fa-solid fa-circle" /> ทักไปเล่าให้คนสำคัญของคุณฟัง

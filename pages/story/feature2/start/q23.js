@@ -14,7 +14,7 @@ const Q23 = observer(() => {
           <Link href="/story/feature2/start/q3">
             <button onClick={() =>
               // store.addCharacter("S")
-              store.addCharacter({ question: 23, character: 'S', index: 1 })
+              store.addCharacter({ question: 23, character: 'S', index: 1, questionnumber:23 })
             }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}
@@ -26,7 +26,7 @@ const Q23 = observer(() => {
           <Link href="/story/feature2/start/q3">
             <button onClick={() =>
               // store.addCharacter("N")
-              store.addCharacter({ question: 23, character: 'N', index: 1 })
+              store.addCharacter({ question: 23, character: 'N', index: 1 , questionnumber:23})
             }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}

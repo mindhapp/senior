@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useRef, useContext } from "react";
 import { useRouter } from "next/router";
+
+import { Context } from '../../../../context'
+import { updateAnswer } from '../../../../services/updateAnswer'
+
 
 function S6() {
   const router = useRouter();
-  const submit = (e) => {
+  const [authState] = useContext(Context)
+
+  const inputRef = useRef(null)
+
+  const submit = async (e) => {
     e.preventDefault();
+
+    // call firestore to set value
+    await updateAnswer('feature1', authState.uid, {
+      s6: inputRef.current.value,
+    })
+
     router.push("/story/feature1/start/s7");
   };
   return (
@@ -20,6 +34,7 @@ function S6() {
               required
               className=" bg-black rounded-md py-4 px-6 text-white"
               placeholder="พิมพ์ข้อความ..."
+              ref={inputRef}
             />
             <br /> <br />
             <button type="submit">{`>> ถัดไป`}</button>

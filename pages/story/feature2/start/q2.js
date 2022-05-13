@@ -3,6 +3,8 @@ import { store } from "../../../../components/store/store";
 import Link from "next/link";
 import { observer } from "mobx-react-lite";
 
+
+
 const Q2 = observer(() => {
   return (
     <div>
@@ -23,7 +25,7 @@ const Q2 = observer(() => {
           <Link href="/story/feature2/start/q3">
             <button onClick={() =>
               // store.addCharacter("N")
-              store.addCharacter({ question: 2, character: 'N', index: 1 })
+              store.addCharacter({ question: 2, character: 'N', index: 1, questionnumber:2 })
             }>
               {" "}
               <i className="fa-solid fa-circle" /> รู้สึกเศร้า เสียใจ

@@ -14,7 +14,7 @@ const Q44 = observer(() => {
           <Link href="/story/feature2/start/end">
             <button onClick={() =>
               // store.addCharacter("J")
-              store.addCharacter({ question: 44, character: 'J', index: 3 })
+              store.addCharacter({ question: 44, character: 'J', index: 3, questionnumber:44 })
             }>
               {" "}
               <i className="fa-solid fa-circle" />{" "}
