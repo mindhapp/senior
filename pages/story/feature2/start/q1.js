@@ -4,7 +4,7 @@ import Link from "next/link";
 import { observer } from "mobx-react-lite";
 
 
-function q1() {
+function Q1() {
   const router = useRouter();
   const [authState] = useContext(Context)
 
