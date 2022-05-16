@@ -4,7 +4,7 @@ import Link from "next/link";
 import { observer } from "mobx-react-lite";
 
 
-function Q1() {
+function Question1() {
   const router = useRouter();
   const [authState] = useContext(Context)
 
@@ -15,7 +15,7 @@ function Q1() {
 
     // call firestore to set value
     await updateAnswer('feature2', authState.uid, {
-      q1: inputRef.current.value,
+      Q1: inputRef.current.value,
     })
 
     router.push("/story/feature2/start/q2");
