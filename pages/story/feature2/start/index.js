@@ -1,32 +1,29 @@
 import React, { useState, useRef, useContext } from "react";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Link from "next/link";
-// import { Context } from '../../../../context'
-// import { updateAnswer } from '../../../../services/updateAnswer'
+import { Context } from '../../../../context'
+import { updateAnswer } from '../../../../services/updateAnswer'
 function Index() {
-  // const router = useRouter();
-  // const [authState] = useContext(Context)
-  // const inputRef = useRef(null)
-  // const submit = async(e) => {
-  //   e.preventDefault();
-  
-     // call firestore to set value
-    //  updateAnswer('feature2', authState.uid, {
-    //   name: inputRef.current.value,
-    // }) 
+  const router = useRouter();
+  const [authState] = useContext(Context)
+  const inputRef = useRef(null)
+  const submit = async (e) => {
+    e.preventDefault();
+    localStorage.setItem('name', name)
+    localStorage.setItem('finish', false)
+    setProcess(2);
+
+    // call firestore to set value
+    updateAnswer('feature2', authState.uid, {
+      name: inputRef.current.value,
+    })
+  }
 
   const [process, setProcess] = useState(1)
   const [name, setName] = useState("")
   const onChangeHandler = (e) => {
     setName(e.target.value)
   }
-  const submit = (e) => {
-    localStorage.setItem('name', name)
-    localStorage.setItem('finish', false)
-    e.preventDefault();
-    setProcess(2);
-    // router.push("/story/feature1/start/q0");
-  };
   return (
     process === 1 ? <div>
       <center>
@@ -34,7 +31,7 @@ function Index() {
           <img src="/logo.png" alt="logo" className="py-10" />
           <label>ชื่อเล่น</label>
           <br />
-          <input onChange={onChangeHandler} className=" bg-gray-300 rounded-md w-64" type="text" pattern="[^0-9]*" required />
+          <input onChange={onChangeHandler} className=" bg-gray-300 rounded-md w-64" type="text" pattern="[^0-9]*" required ref={inputRef} />
           <br />
           <br />
           <label>อายุ</label>
@@ -62,6 +59,7 @@ function Index() {
       </div>
     </div >
   );
+
 
 }
 export default Index;
