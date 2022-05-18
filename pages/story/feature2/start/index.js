@@ -1,7 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useContext } from "react";
+// import { useRouter } from "next/router";
 import Link from "next/link";
-
+// import { Context } from '../../../../context'
+// import { updateAnswer } from '../../../../services/updateAnswer'
 function Index() {
+  // const router = useRouter();
+  // const [authState] = useContext(Context)
+  // const inputRef = useRef(null)
+  // const submit = async(e) => {
+  //   e.preventDefault();
+  
+     // call firestore to set value
+    //  updateAnswer('feature2', authState.uid, {
+    //   name: inputRef.current.value,
+    // }) 
+
   const [process, setProcess] = useState(1)
   const [name, setName] = useState("")
   const onChangeHandler = (e) => {
@@ -12,6 +25,7 @@ function Index() {
     localStorage.setItem('finish', false)
     e.preventDefault();
     setProcess(2);
+    // router.push("/story/feature1/start/q0");
   };
   return (
     process === 1 ? <div>
@@ -48,6 +62,6 @@ function Index() {
       </div>
     </div >
   );
-}
 
+}
 export default Index;

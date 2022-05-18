@@ -1,11 +1,21 @@
-import React from "react";
+
 import { useRouter } from "next/router";
+import React, { useRef, useContext } from "react";
+import { Context } from '../../../../context'
+import { updateAnswer } from '../../../../services/updateAnswer'
 
 function Index() {
   const router = useRouter();
-  const submit = (e) => {
+  const [authState] = useContext(Context)
+  const inputRef = useRef(null)
+  const submit = async(e) => {
     e.preventDefault();
-    router.push("/story/feature1/start/s1");
+  
+     // call firestore to set value
+     updateAnswer('feature1', authState.uid, {
+      name: inputRef.current.value,
+    }) 
+     router.push("/story/feature1/start/s1");
   };
   return (
     <div>
@@ -14,7 +24,8 @@ function Index() {
           <img src="/logo.png" alt="logo" className="py-10" />
           <label>ชื่อเล่น</label>
           <br />
-          <input className=" bg-gray-300 rounded-md w-64" type="text" pattern="[^0-9]*" required />
+          <input className=" bg-gray-300 rounded-md w-64" type="text" pattern="[^0-9]*" required 
+          ref={inputRef}/>
           <br />
           <br />
           <label>อายุ</label>
